@@ -18,14 +18,16 @@
 #===============================================================================
 
 setup() {
-	  mkdir ../tutorial/xspec
-	  mkdir ../test/xspec
+	mkdir ../tutorial/xspec
+	mkdir ../test/xspec
+	mkdir ../tutorial/schematron/xspec
 }
 
 
 teardown() {
-	  rm -rf ../tutorial/xspec
-	  rm -rf ../test/xspec
+	rm -rf ../tutorial/xspec
+	rm -rf ../test/xspec
+	rm -rf ../tutorial/schematron/xspec
 }
 
 

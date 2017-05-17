@@ -444,6 +444,7 @@ rem
     rem
     call :mkdir ..\test\xspec
     call :mkdir ..\tutorial\xspec
+    call :mkdir ..\tutorial\schematron\xspec
 
     goto :EOF
 
@@ -453,6 +454,7 @@ rem
     rem
     call :rmdir ..\test\xspec
     call :rmdir ..\tutorial\xspec
+    call :rmdir ..\tutorial\schematron\xspec
 
     rem
     rem Remove the work directory
