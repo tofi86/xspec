@@ -177,7 +177,10 @@
     </xsl:template>
     
     <xsl:template match="x:*/@href">
-        <xsl:attribute name="href" select="resolve-uri(., base-uri(.))"/> 
+        <!-- Fix 'file:C:/...' (https://issues.apache.org/jira/browse/XMLCOMMONS-24) -->
+        <xsl:variable as="xs:string" name="base-uri" select="replace(base-uri(), '^(file:)([^/])', '$1/$2')"/>
+        
+        <xsl:attribute name="href" select="resolve-uri(., $base-uri)"/> 
     </xsl:template>
     
 </xsl:stylesheet>
