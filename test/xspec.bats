@@ -418,3 +418,11 @@ teardown() {
     [ "$status" -eq 0 ]
     [[ "${output}" =~  "BUILD SUCCESSFUL" ]]
 }
+
+
+@test "Ant for Schematron with catalog and context href" {
+    run ant -buildfile ${PWD}/../build.xml -Dxspec.xml=${PWD}/catalog/xspec-161_schematron.xspec -lib ${SAXON_CP} -Dtest.type=s -Dxspec.phase=#ALL -Dclean.output.dir=true -Dcatalog=${PWD}/catalog/xspec-161_catalog.xml -lib ${XML_RESOLVER_CP}
+	echo "$output"
+    [ "$status" -eq 0 ]
+    [[ "${output}" =~  "BUILD SUCCESSFUL" ]]
+}

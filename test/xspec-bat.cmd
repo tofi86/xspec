@@ -525,6 +525,20 @@ setlocal
     call :teardown
 endlocal
 
+setlocal
+    call :setup "Ant for Schematron with catalog and context href"
+
+    if defined ANT_VERSION (
+        call :run ant -buildfile "%CD%\..\build.xml" -Dxspec.xml="%CD%\catalog\xspec-161_schematron.xspec" -lib "%SAXON_CP%" -Dtest.type=s -Dxspec.phase=#ALL -Dclean.output.dir=true -Dcatalog="%CD%\catalog\xspec-161_catalog.xml" -lib "%XML_RESOLVER_CP%"
+        call :verify_retval 0
+        call :verify_line -2 x "BUILD SUCCESSFUL"
+    ) else (
+        call :skip "test for Schematron Ant with catalog and context href skipped"
+    )
+
+    call :teardown
+endlocal
+
 echo === END TEST CASES ==================================================
 
 rem
