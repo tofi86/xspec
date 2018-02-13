@@ -38,7 +38,7 @@
         </xsl:element>
     </xsl:template>
 
-    <xsl:template match="@schematron">
+    <xsl:template match="x:description/@schematron">
         <xsl:attribute name="stylesheet" select="$stylesheet"/>
         <xsl:variable name="path" select="resolve-uri(string(), base-uri())"/>
         <xsl:for-each select="doc($path)/sch:schema/sch:ns" xmlns:sch="http://purl.oclc.org/dsdl/schematron">
@@ -174,6 +174,10 @@
                 <xsl:sequence select="current()[@count]/concat(' eq ', @count)"/>
             </xsl:attribute>
         </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="x:*/@href">
+        <xsl:attribute name="href" select="resolve-uri(., base-uri(.))"/> 
     </xsl:template>
     
 </xsl:stylesheet>
