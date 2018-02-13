@@ -54,9 +54,6 @@
                 self::x:expect-report | self::x:expect-not-report |
                 self::x:expect-valid | self::x:description[@schematron] ]">
                 <xsl:comment>BEGIN IMPORT "<xsl:value-of select="@href"/>"</xsl:comment>
-                <!-- Messages for diagnostic purposes -->
-                <xsl:message select="'[DIAG] $href:', $href"/>
-                <xsl:message select="'[DIAG] base-uri:', base-uri(doc($href))"/>
                 <xsl:apply-templates select="doc($href)/x:description/node()"/>
                 <xsl:comment>END IMPORT "<xsl:value-of select="@href"/>"</xsl:comment>
             </xsl:when>
