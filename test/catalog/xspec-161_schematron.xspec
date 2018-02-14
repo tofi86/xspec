@@ -3,4 +3,11 @@
 <x:description schematron="xspec-tutorial:/schematron/demo-01.sch"
 	xmlns:x="http://www.jenitennison.com/xslt/xspec">
 	<x:import href="xspec-tutorial:/schematron/demo-01.xspec" />
+
+	<x:scenario label="In .xspec file being imported">
+		<x:call function="doc">
+			<x:param select="'xspec-tutorial:/schematron/demo-01.xspec'" />
+		</x:call>
+		<x:expect label="x:context/@href must exist" test="exists(descendant::x:context/@href)" />
+	</x:scenario>
 </x:description>
